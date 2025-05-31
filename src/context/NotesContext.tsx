@@ -215,6 +215,7 @@ export function NotesProvider({ children, collectionName = "normalNotes" }: {
           updatedAt: now,
           creatorEmail: userEmail,
           creatorName: userName,
+          
         };
         const notesRef = collection(db, collectionName2);
         const newNoteRef = await addDoc(notesRef, noteData);
