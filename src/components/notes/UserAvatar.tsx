@@ -52,8 +52,8 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
       <div className={`${sizeClasses[size]} ${colorClasses[colorScheme].background} rounded-full flex items-center justify-center text-white font-medium`}>
         {getInitial()}
       </div>
-      <div className="absolute left-full ml-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[9999]">
-        <div className={`w-2 h-2 ${colorClasses[colorScheme].tooltipArrow} transform rotate-45 absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 shadow-sm`}></div>
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[9999]">
+        <div className={`w-2 h-2 ${colorClasses[colorScheme].tooltipArrow} transform rotate-45 absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 shadow-sm`}></div>
         <div className={`${colorClasses[colorScheme].tooltipBg} text-white text-xs rounded-md py-1.5 px-3 whitespace-nowrap shadow-lg border border-${colorScheme === 'blue-teal' ? 'blue' : 'purple'}-700/20`}>
           {displayName}
         </div>
