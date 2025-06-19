@@ -21,6 +21,7 @@ interface NoteCardProps {
   onEditNote: (note: Note) => void;
   onDeleteNote: (note: Note) => void;
   formatDate: (date: Date) => string;
+  index: number;
 }
 
 // Utility function to detect text direction
@@ -39,12 +40,13 @@ const NoteCard: React.FC<NoteCardProps> = ({
   onShowNote,
   onEditNote,
   onDeleteNote,
-  formatDate
+  formatDate,
+  index
 }) => {
   return (
     <div
       key={note.id}
-      className="bg-white shadow-xl dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow p-4 sm:p-5 cursor-pointer flex flex-col h-full"
+      className="bg-white shadow-xl dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow p-4 sm:p-5 cursor-pointer flex flex-col h-full relative"
     >
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1 min-w-0 mr-3">
@@ -56,6 +58,14 @@ const NoteCard: React.FC<NoteCardProps> = ({
           </h4>
         </div>
         <div className="flex items-center space-x-2 flex-shrink-0">
+          <div className="relative group -mt-[1rem] sm:-mt-[1.3rem] ">
+            <div className="w-10 h-14 bg-gray-100 dark:bg-gray-700 shadow-lg rounded-b-xl transform transition-all duration-200 group-hover:shadow-xl  flex items-center justify-center">
+              <div className="absolute inset-0 bg-white dark:bg-gray-800 opacity-10 rounded-b-lg"></div>
+              <span className="relative text-gray-800 dark:text-white text-sm font-medium leading-none">
+                {index + 1}
+              </span>
+            </div>
+          </div>
           <UserAvatar
             name={note.creatorName}
             email={note.creatorEmail}
